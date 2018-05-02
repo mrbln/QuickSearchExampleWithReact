@@ -29,8 +29,6 @@ export class SearchBar extends React.Component {
           />
         </label>
         <input type="submit" value="Submit" />
-        <h1>Here is your search term:</h1>
-        <h3>{this.state.text}</h3>
       </div>
     );
   }
