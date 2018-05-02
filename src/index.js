@@ -6,7 +6,7 @@ import { VideoContainer } from "./VideoContainer.js";
 const App = () => (
   <div>
     <SearchBar />
-    <VideoContainer />
+    <VideoContainer videoLink="https://www.youtube.com/embed/FxbzRzc_xbQ" />
   </div>
 );
 

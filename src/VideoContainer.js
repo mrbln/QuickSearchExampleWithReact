@@ -11,7 +11,7 @@ export class VideoContainer extends React.Component {
         <iframe
           width="420"
           height="315"
-          src="https://www.youtube.com/embed/FxbzRzc_xbQ"
+          src={this.props.videoLink}
           frameborder="0"
           allow="autoplay; encrypted-media"
           allowfullscreen
