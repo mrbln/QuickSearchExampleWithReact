@@ -1,7 +1,7 @@
 {
-  "name": "new",
+  "name": "quicksearchbar",
   "version": "1.0.0",
-  "description": "",
+  "description": "Trying to get used to React with real-life example",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {

@@ -1,10 +1,10 @@
 import React from "react";
 import { render } from "react-dom";
-import { InputView } from "./InputView.js";
+import { SearchBar } from "./SearchBar.js";
 
 const App = () => (
   <div>
-    <InputView />
+    <SearchBar />
   </div>
 );
 
