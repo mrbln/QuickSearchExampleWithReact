@@ -1,2 +1,0 @@
-# QuickSearchExampleWithReact
-Created with CodeSandbox
