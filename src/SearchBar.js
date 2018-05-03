@@ -42,9 +42,9 @@ export class SearchBar extends React.Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    const searchTerm = e.target.value;
+    const searchTerm = this.state.text;
     console.log(searchTerm);
-    const temp = _.find(list, { artist: "searchTerm" });
+    const temp = _.find(list, { artist: searchTerm });
     console.log(temp);
 
     this.setState({
