@@ -1,13 +1,37 @@
 import React from "react";
+import _ from "lodash";
+
+import { VideoContainer } from "./VideoContainer.js";
+
+const list = [
+  {
+    artist: "Dio",
+    songName: "Naked in the Rain",
+    videoLink: "https://www.youtube.com/embed/6maBpB9wBDA"
+  },
+  {
+    artist: "Metallica",
+    songName: "Nothing Else Matters",
+    videoLink:
+      "https://www.youtube.com/embed/tAGnKpE4NCI?list=PLXIdhrTXbAT2e5YIvo55jcQtNjgdFHYe_"
+  },
+  {
+    artist: "Slayer",
+    songName: "Raining Blood",
+    videoLink: "https://www.youtube.com/embed/z8ZqFlw6hYg"
+  }
+];
 
 export class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ""
+      text: "",
+      selectedVideo: ""
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
   handleOnChange(e) {
@@ -16,19 +40,35 @@ export class SearchBar extends React.Component {
     });
   }
 
+  handleOnSubmit(e) {
+    e.preventDefault();
+    const searchTerm = e.target.value;
+    console.log(searchTerm);
+    const temp = _.find(list, { artist: "searchTerm" });
+    console.log(temp);
+
+    this.setState({
+      selectedVideo: temp
+    });
+  }
+
   render() {
     return (
       <div>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="SearchBar"
-            value={this.state.text}
-            onChange={this.handleOnChange}
-          />
-        </label>
-        <input type="submit" value="Submit" />
+        <form onSubmit={this.handleOnSubmit}>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="SearchBar"
+              value={this.state.text}
+              onChange={this.handleOnChange}
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+        <h1>{this.state.selectedVideo}</h1>
+        <VideoContainer videoLink={this.state.selectedVideo} />
       </div>
     );
   }
