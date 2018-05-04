@@ -9,8 +9,8 @@ export class VideoContainer extends React.Component {
     return (
       <div>
         <iframe
-          width="420"
-          height="315"
+          width="500"
+          height="350"
           src={this.props.videoLink}
           frameborder="0"
           allow="autoplay; encrypted-media"

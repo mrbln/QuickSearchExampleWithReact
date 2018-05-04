@@ -2,6 +2,7 @@ import React from "react";
 import _ from "lodash";
 
 import { VideoContainer } from "./VideoContainer.js";
+import { FormView } from "./FormView.js";
 
 const list = [
   {
@@ -42,17 +43,17 @@ export class SearchBar extends React.Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    const searchTerm = this.state.text;
-    const temp = _.find(list, function(o) {
+    const searchTerm = this.state.text.toLowerCase();
+    const foundVideoLink = _.find(list, function(listItem) {
       return (
-        o.artist.toLowerCase().includes(searchTerm) ||
-        o.songName.toLowerCase().includes(searchTerm)
+        listItem.artist.toLowerCase().includes(searchTerm) ||
+        listItem.songName.toLowerCase().includes(searchTerm)
       );
     });
 
-    if (temp) {
+    if (foundVideoLink) {
       this.setState({
-        selectedVideo: temp.videoLink
+        selectedVideo: foundVideoLink.videoLink
       });
     }
   }
@@ -60,18 +61,11 @@ export class SearchBar extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleOnSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="SearchBar"
-              value={this.state.text}
-              onChange={this.handleOnChange}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+        <FormView
+          text={this.state.text}
+          onSubmit={this.handleOnSubmit}
+          onChange={this.handleOnChange}
+        />
         <VideoContainer videoLink={this.state.selectedVideo} />
       </div>
     );

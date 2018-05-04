@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { SearchBar } from "./SearchBar.js";
 
 const App = () => (
-  <div>
+  <div align="center">
     <SearchBar />
   </div>
 );
