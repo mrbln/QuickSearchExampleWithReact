@@ -4,24 +4,7 @@ import _ from "lodash";
 import { VideoContainer } from "./VideoContainer.js";
 import { FormView } from "./FormView.js";
 
-const list = [
-  {
-    artist: "Dio",
-    songName: "Naked in the Rain",
-    videoLink: "https://www.youtube.com/embed/6maBpB9wBDA"
-  },
-  {
-    artist: "Metallica",
-    songName: "Nothing Else Matters",
-    videoLink:
-      "https://www.youtube.com/embed/tAGnKpE4NCI?list=PLXIdhrTXbAT2e5YIvo55jcQtNjgdFHYe_"
-  },
-  {
-    artist: "Slayer",
-    songName: "Raining Blood",
-    videoLink: "https://www.youtube.com/embed/z8ZqFlw6hYg"
-  }
-];
+import videos from "./constants/videos.js";
 
 export class SearchBar extends React.Component {
   constructor(props) {
@@ -44,7 +27,7 @@ export class SearchBar extends React.Component {
   handleOnSubmit(e) {
     e.preventDefault();
     const searchTerm = this.state.text.toLowerCase();
-    const foundVideoLink = _.find(list, function(listItem) {
+    const foundVideoLink = _.find(videos.list, function(listItem) {
       return (
         listItem.artist.toLowerCase().includes(searchTerm) ||
         listItem.songName.toLowerCase().includes(searchTerm)
