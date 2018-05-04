@@ -43,13 +43,18 @@ export class SearchBar extends React.Component {
   handleOnSubmit(e) {
     e.preventDefault();
     const searchTerm = this.state.text;
-    console.log(searchTerm);
-    const temp = _.find(list, { artist: searchTerm });
-    console.log(temp);
-
-    this.setState({
-      selectedVideo: temp
+    const temp = _.find(list, function(o) {
+      return (
+        o.artist.toLowerCase().includes(searchTerm) ||
+        o.songName.toLowerCase().includes(searchTerm)
+      );
     });
+
+    if (temp) {
+      this.setState({
+        selectedVideo: temp.videoLink
+      });
+    }
   }
 
   render() {
@@ -67,7 +72,6 @@ export class SearchBar extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-        <h1>{this.state.selectedVideo}</h1>
         <VideoContainer videoLink={this.state.selectedVideo} />
       </div>
     );
