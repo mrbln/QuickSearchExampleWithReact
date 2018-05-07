@@ -1,14 +1,11 @@
 import React from "react";
 
 export class VideoContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
         <iframe
+          title="musicVideo"
           width="500"
           height="350"
           src={this.props.videoLink}
