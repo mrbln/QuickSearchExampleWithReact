@@ -11,7 +11,7 @@ export class VideoContainer extends React.Component {
           src={this.props.videoLink}
           frameborder="0"
           allow="autoplay; encrypted-media"
-          allowfullscreen
+          allowfullscreen="true"
         />
       </div>
     );

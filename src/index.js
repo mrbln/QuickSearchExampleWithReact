@@ -1,10 +1,10 @@
 import React from "react";
 import { render } from "react-dom";
-import { SearchBarView } from "./components/SearchBar/SearchBarView.js";
+import { SearchBarContainer } from "./components/SearchBar/SearchBarContainer.js";
 
 const App = () => (
   <div align="center">
-    <SearchBarView />
+    <SearchBarContainer />
   </div>
 );
 
