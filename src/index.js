@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import { SearchBarContainer } from "./components/SearchBar/SearchBarContainer.js";
+import { SearchBarContainer } from "./components/SearchBar/containers/SearchBarContainer.js";
 
 const App = () => (
   <div align="center">

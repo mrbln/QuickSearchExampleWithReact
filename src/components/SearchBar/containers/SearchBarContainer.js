@@ -1,10 +1,10 @@
 import React from "react";
 
-import { VideoContainer } from "../../VideoContainer.js";
+import { VideoView } from "../views/VideoView.js";
 
-import { SearchBarView } from "./SearchBarView.js";
+import { SearchBarView } from "../views/SearchBarView.js";
 
-import videos from "../../constants/videos.js";
+import videos from "../../../constants/videos.js";
 
 export class SearchBarContainer extends React.Component {
   constructor(props) {
@@ -49,7 +49,7 @@ export class SearchBarContainer extends React.Component {
           onChange={this._handleOnChange}
           onSubmit={this._handleOnSubmit}
         />
-        <VideoContainer videoLink={this.state.selectedVideo} />
+        <VideoView videoLink={this.state.selectedVideo} />
       </div>
     );
   }

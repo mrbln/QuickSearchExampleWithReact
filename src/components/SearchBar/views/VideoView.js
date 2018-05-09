@@ -1,6 +1,6 @@
 import React from "react";
 
-export class VideoContainer extends React.Component {
+export class VideoView extends React.Component {
   render() {
     return (
       <div>
