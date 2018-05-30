@@ -9,9 +9,9 @@ export class VideoView extends React.Component {
           width="500"
           height="350"
           src={this.props.videoLink}
-          frameborder="0"
+          frameBorder="0"
           allow="autoplay; encrypted-media"
-          allowfullscreen="true"
+          allowFullScreen="true"
         />
       </div>
     );
