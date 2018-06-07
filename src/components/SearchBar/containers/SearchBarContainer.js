@@ -25,17 +25,12 @@ export class SearchBarContainer extends React.Component {
     this.searchYoutube = this.searchYoutube.bind(this);
   }
 
-  searchYoutube(term) {
+  searchYoutube() {
+    const term = this.state.text.toLowerCase();
     YTSearch({ key: YT_API, term: term }, videos => {
-      this.setState({
-        videos: videos
-      });
+      this.tempFunc(videos);
     });
   }
-
-  /*videoSearch = _.debounce(term => {
-    this.searchYoutube(term);
-  }, 3000);*/
 
   _handleOnChange(e) {
     this.setState({
@@ -45,21 +40,19 @@ export class SearchBarContainer extends React.Component {
 
   _handleOnSubmit(e) {
     e.preventDefault();
-    const searchTerm = this.state.text.toLowerCase();
-    this.searchYoutube(searchTerm);
-    // console.log("videos: " + this.state.videos);
+    this.searchYoutube();
+  }
+
+  tempFunc(videos) {
     const foundVideoLink =
-      this.state.videos.length > 0
-        ? "https://www.youtube.com/embed/" + this.state.videos[0].id.videoId
+      videos && videos.length > 0
+        ? "https://www.youtube.com/embed/" + videos[1].id.videoId
         : null;
 
     if (foundVideoLink) {
       this.setState({
         selectedVideo: foundVideoLink
       });
-      // console.log("foundVideoLink: " + foundVideoLink);
-      // console.log("videoId: " + this.state.videos[0].id.videoId);
-      // console.log("selectedVideo: " + this.state.selectedVideo);
     }
   }
 
